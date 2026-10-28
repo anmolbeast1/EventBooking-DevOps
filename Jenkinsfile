@@ -45,7 +45,7 @@ pipeline {
             steps {
                 bat 'docker stop eventsphere-backend || exit 0'
                 bat 'docker rm eventsphere-backend || exit 0'
-                bat 'docker run -d -p 8000:8000 --name eventsphere-backend eventsphere-backend'
+                bat 'docker run -d --env-file backend/.env -p 8000:8000 --name eventsphere-backend eventsphere-backend'
             }
         }
     }
